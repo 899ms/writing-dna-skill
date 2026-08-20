@@ -181,3 +181,43 @@ author-or-publication/
 - `Writing-DNA.md` is concise, operational, and internally consistent.
 - A draft written from the artifacts can be audited against explicit rules rather than a vague similarity judgment.
 - Public output does not impersonate the source author or misrepresent authorship.
+
+## Writing With The Artifacts
+
+Once distillation is done, **complete the reading steps below before every writing task**. Do not write from `Writing-DNA.md` alone, and do not rely on memory from an earlier turn: the integrated document holds compressed conclusions, while the actual cadence, sentence lengths, transitions, and punctuation habits live in the layered artifacts and the source articles.
+
+### Required Reading Before Each Draft
+
+**First, read every artifact** (four layered files plus the integrated document; skip none):
+
+| File | What to take from it |
+| - | - |
+| `language-dna.md` | Frequent words, sentence-length distribution, punctuation habits |
+| `structure-patterns.md` | The pattern matching this piece's content type |
+| `cognitive-framework.md` | Angle of entry, source preferences, core propositions |
+| `visual-style-guide.md` | Image placement and type, bold density, paragraph rhythm, section breaks |
+| `Writing-DNA.md` | Overall constraints and priorities |
+
+**Second, read 5 relevant articles from `raw/`.** Pick the five closest to this piece in content type and subject:
+
+1. Filter on `article_type` and `topic_tags` in `_meta/` first.
+2. When more than five match, take the five most recent — recent work better represents the current style.
+3. When fewer than five match, fill up to five with the same content type on different subjects.
+4. When `_meta/` is missing or incomplete, judge from the dates and titles in the filenames.
+
+Reading the source articles is not about harvesting material; it calibrates what the layered artifacts cannot describe: how sentences actually breathe, how paragraphs connect, when a short sentence lands, how spoken and written registers mix. **Be able to state what these five share in voice** before drafting.
+
+### Priority When Rules Conflict
+
+1. The user's explicit instructions for this piece (subject, length, platform, language)
+2. The structure pattern matching the current content type
+3. Language characteristics and visual style
+4. Cognitive frames — these drive stance and source selection, not sentence construction
+
+Specific claims and facts from the source articles **must not be carried into the new piece**. You are reproducing how the author writes, not what they wrote.
+
+### After Drafting
+
+Clean AI writing tells from the finished draft using the rules in `skills/lieflat-less-ai-tone/`. It rewrites against an explicit whitelist, leaves unmatched text untouched, and does not restructure the piece.
+
+**When the distilled artifacts conflict with the AI-tell rules, the artifacts win** — that is how the target author actually writes, not an AI tell.

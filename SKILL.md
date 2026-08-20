@@ -1,6 +1,6 @@
 ---
 name: writing-dna-skill
-description: 从至少 20 篇完整文章中蒸馏可复用的写作 DNA，分析语言、文章结构、选题逻辑、素材策略、认知框架和视觉风格，并生成 Writing-DNA.md。用于中英文作者、账号、品牌或出版物的风格分析与一致性写作。 Distill reusable Writing DNA from at least 20 complete articles for Chinese or English authors, publications, brands, and accounts; use for language, structure, topic logic, source strategy, cognitive-frame, and visual-style analysis.
+description: 从至少 20 篇完整文章中蒸馏可复用的写作 DNA，分析语言、文章结构、选题逻辑、素材策略、认知框架和视觉风格，并生成 Writing-DNA.md；按该 DNA 写作时会读取全部蒸馏产物和 5 篇相关原文。用于中英文作者、账号、品牌或出版物的风格分析与一致性写作。 Distill reusable Writing DNA from at least 20 complete articles for Chinese or English authors, publications, brands, and accounts; use for language, structure, topic logic, source strategy, cognitive-frame, and visual-style analysis.
 ---
 
 # 写作蒸馏器.skill
@@ -249,6 +249,8 @@ YYYY-MM-DD 内容类型 文章标题-来源.md
 
 ## 四、目录结构规范
 
+（本节说明蒸馏产物的存放位置，写作阶段的使用方式见第六节。）
+
 每个账号或作者目录建议采用以下结构。中文产物使用左侧文件名，英文产物使用括号中的英文文件名：
 
 ```
@@ -275,3 +277,49 @@ YYYY-MM-DD 内容类型 文章标题-来源.md
 - [ ] 元数据覆盖至少 80% 的语料文章
 - [ ] L6 视觉分析覆盖配图策略、排版格式、色彩使用三个维度
 - [ ] Writing-DNA.md 单文档字数控制在 4000 字以内（过长 = 没蒸馏干净）
+
+---
+
+## 六、使用蒸馏产物写作
+
+蒸馏完成后，每次按该 DNA 写作前，**必须先完成下面的读取步骤**。不允许只凭 `Writing-DNA.md` 或凭上一轮对话的记忆下笔——整合文档是压缩后的结论，具体的语感、句子长短、过渡方式和标点习惯只存在于分层产物和原文里。
+
+### 6.1 每次写作前必读
+
+**第一步：读完全部蒸馏产物**（四份分层产物 + 整合文档，一份都不能跳过）
+
+| 读什么 | 中文文件名 | 英文文件名 | 提取什么 |
+| - | - | - | - |
+| L1 语言 | `语言DNA.md` | `language-dna.md` | 高频词、句长分布、标点习惯、中英混用方式 |
+| L2 结构 | `文章结构模板.md` | `structure-patterns.md` | 匹配本次体裁的结构模板 |
+| L3-L5 认知 | `写作视角与认知框架.md` | `cognitive-framework.md` | 切入角度、素材偏好、核心命题 |
+| L6 视觉 | `视觉风格指南.md` | `visual-style-guide.md` | 配图位置与类型、加粗密度、段落节奏、分隔方式 |
+| 整合 | `Writing-DNA.md` | `Writing-DNA.md` | 总体约束与优先级 |
+
+**第二步：读 5 篇相关的 raw 原文**
+
+从 `raw/` 中选 5 篇与本次写作**体裁和题材最接近**的文章通读。选取方式：
+
+1. 优先用 `_meta/` 的 `article_type` 和 `topic_tags` 筛选匹配项
+2. 匹配项超过 5 篇时，取时间最近的 5 篇（近期文章更代表当前风格）
+3. 匹配项不足 5 篇时，用同体裁不同题材的文章补齐到 5 篇
+4. `_meta/` 不完整或缺失时，直接按文件名中的日期和标题判断
+
+读 raw 的目的不是找素材，而是校准分层产物里描述不出来的东西：句子的实际呼吸感、段落之间怎么接、什么时候突然用一个短句、口语和书面语怎么混。**读完要能说出这 5 篇的共同语感**，再开始写。
+
+### 6.2 写作时的优先级
+
+规则冲突时按此顺序取舍：
+
+1. 用户的明确指令（本次要求的题材、长度、平台、语言）
+2. L2 结构模板中匹配当前体裁的那一套
+3. L1 语言特征与 L6 视觉风格
+4. L3-L5 认知框架（决定观点立场和素材选择，不决定句式）
+
+原文里的具体观点和事实**不能直接搬进新文章**——复刻的是写法，不是内容。
+
+### 6.3 写完之后：清理 AI 痕迹
+
+写作完成后，用 `skills/lieflat-less-ai-tone/` 的规则清理成稿中的 AI 痕迹。它采用白名单式改写，只处理规则清单内的问题，不改文章框架，也不覆盖本次写作已遵循的 DNA 特征。
+
+**蒸馏产物与去 AI 味规则冲突时，以蒸馏产物为准**——那是目标作者的真实写法，不是 AI 痕迹。

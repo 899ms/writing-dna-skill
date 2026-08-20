@@ -138,12 +138,15 @@ Use writing-dna-skill to distill the writing style from every article in this di
 
 ## Writing With a Distilled Style
 
-For more consistent results, do not load the style documents only once. Before each writing task:
+For more consistent results, do not load the style documents only once. Section six of SKILL.md makes the pre-writing reading a required step:
 
 1. Give the agent the topic, audience, purpose, and relevant context.
-2. Ask it to reread every distilled style document.
-3. Require the draft to follow the language, structure, cognitive, and visual rules.
-4. If the result does not feel accurate, ask the agent to audit the draft against `language-dna.md`, `structure-patterns.md`, and `cognitive-framework.md`, then rewrite it.
+2. Ask it to reread **every** distilled artifact — the four layered files plus `Writing-DNA.md`, skipping none. The integrated document holds compressed conclusions; the actual cadence lives in the layered files.
+3. Then have it read **5 articles from `raw/`** that are closest in content type and subject. Filter on `article_type` and `topic_tags` in `_meta/` first; when more than five match, take the most recent. Reading source articles is not about harvesting material — it calibrates what the artifacts cannot describe: how sentences breathe, how paragraphs connect, when a short sentence lands.
+4. Require the draft to follow the language, structure, cognitive, and visual rules.
+5. If the result does not feel accurate, ask the agent to audit the draft against `language-dna.md`, `structure-patterns.md`, and `cognitive-framework.md`, then rewrite it.
+
+Priority when rules conflict: the user's explicit instructions for this piece > the structure pattern matching the content type > language characteristics and visual style > cognitive frames. Specific claims and facts from the source articles must not be carried into the new piece — you are reproducing how the author writes, not what they wrote.
 
 Example:
 
@@ -152,7 +155,10 @@ Read every distilled style document in this author's directory, especially
 Writing-DNA.md, language-dna.md, structure-patterns.md,
 cognitive-framework.md, and visual-style-guide.md.
 
-Then write an article for the target audience using those rules.
+Then pick the 5 articles in raw/ closest to my subject, read them, and tell me
+what they share in voice.
+
+Finally, write an article for the target audience using those rules.
 Topic: ...
 ```
 
